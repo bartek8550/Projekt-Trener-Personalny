@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Plan dietetyczny",
+    "detail": "2100 kcal",
+    "price": 25,
+    "image": "/images/boxPlanDietetyczny.png"
+  },
+  {
+    "title": "Plan dietetyczny",
+    "detail": "2400 kcal",
+    "price": 50,
+    "image": "/images/boxPlanDietetyczny.png"
+  },
+  {
+    "title": "Plan dietetyczny",
+    "detail": "2700 kcal",
+    "price": 75,
+    "image": "/images/boxPlanDietetyczny.png"
+  },
+  {
+    "title": "Plan dietetyczny",
+    "detail": "3000 kcal",
+    "price": 100,
+    "image": "/images/boxPlanDietetyczny.png"
+  },
+  {
+    "title": "Plan treningowy",
+    "detail": "3 miesiące",
+    "price": 25,
+    "image": "/images/boxPlanTreningowy.png"
+  },
+  {
+    "title": "Plan treningowy",
+    "detail": "6 miesięcy",
+    "price": 50,
+    "image": "/images/boxPlanTreningowy.png"
+  },
+  {
+    "title": "Plan treningowy",
+    "detail": "9 miesięcy",
+    "price": 75,
+    "image": "/images/boxPlanTreningowy.png"
+  },
+  {
+    "title": "Plan treningowy",
+    "detail": "1 rok",
+    "price": 100,
+    "image": "/images/boxPlanTreningowy.png"
+  }
+]
