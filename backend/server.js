@@ -7,7 +7,11 @@ const app = express();
 const connectDB = require('./config/connectDB');
 //Ustawienie portu z pliku env
 const port = process.env.PORT || 3000;
+
+app.use(express.json()); // Do obsługi danych w formacie JSON
+app.use(express.urlencoded({ extended: true })); // Do obsługi danych formularza
 const productRoutes = require('./routes/productRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 //Uruchoemienie serwera, połączenie z bazą mongo i nasłuchiwanie na porcie
 const startServ = async () => {
@@ -26,6 +30,8 @@ startServ();
 app.use('/images', express.static(path.join(__dirname, 'frontend/IMG')));
 //trasowanie na produkty
 app.use('/api/v1', productRoutes);
+
+app.use('/api/v1', userRoutes);
 
 app.get('/', (req, res) => {
   res.send('Express app is running');
