@@ -67,12 +67,19 @@ exports.loginUser = async (req, res, next) => {
     const user = await Users.findOne({ email }).select('+password');
 
     // Sprawdzenie, czy użytkownik istnieje i czy hasła się zgadzają
+    if (!user || !(await user.checkIsSame(password, user.password))) {
+      return res.status(401).json({
+        status: 'fail',
+        message: 'Nieprawidłowy email lub hasło',
+      });
+    }
+
     if (!user || !(await user.checkIsSame(password, user.password)))
       throw new Error('Nieprawidłowy email lub hasło');
 
     // Wygenerowanie tokenu
     const token = sign(user._id);
-    res.status(201).json({
+    res.status(200).json({
       status: 'success',
       token,
     });
