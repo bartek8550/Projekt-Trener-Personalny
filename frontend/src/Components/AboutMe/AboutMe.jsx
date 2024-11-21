@@ -6,10 +6,10 @@ const AboutMe = () => {
   return (
     <div className="max-w-6xl mx-auto px-4">
       <div className="flex flex-row flex-wrap mt-[15vh] mb-[3vh]">
-        <div className="basis-1/2">
-          <img src={face} alt="" className="h-[45vh] shadow-3xl"></img>
+        <div className="basis-1/2 pr-5 pl-5">
+          <img src={face} alt="" className="max-h-full shadow-3xl"></img>
         </div>
-        <div className="basis-1/2">
+        <div className="basis-1/2 pl-5 pr-5">
           <h1 className="text-3xl font-bold mb-10">
             Dlaczego warto mi zaufać?
           </h1>
@@ -36,7 +36,7 @@ const AboutMe = () => {
         </div>
         <div className="grid grid-cols-2 w-full h-[15vh]">
           <div className="flex justify-center items-center col-start-2">
-            <a href="#" className="col-start-2 ">
+            <a href="#" className="col-start-2 pl-5">
               <button
                 type="button"
                 className="motion-safe:hover:-translate-y-0.5 motion-safe:transition bg-pColor text-white font-semibold p-4 mr-5"
