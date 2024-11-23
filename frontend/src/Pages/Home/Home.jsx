@@ -5,6 +5,8 @@ import Header from './../../Components/Header/Header';
 import AboutMe from './../../Components/AboutMe/AboutMe';
 import AboutMeFigures from './../../Components/AboutMeFigures/AboutMeFigures';
 import Offer from './../../Components/Offer/Offer';
+import Rates from './../../Components/Rates/Rates';
+import Transitions from './../../Components/Transitions/Transitions';
 
 const Home = () => {
   return (
@@ -14,6 +16,8 @@ const Home = () => {
       <AboutMe />
       <AboutMeFigures />
       <Offer />
+      <Rates />
+      <Transitions/>
     </div>
   );
 };
