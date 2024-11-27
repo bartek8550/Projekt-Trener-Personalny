@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../../index.css';
 import logoTP from '../../IMG/logoTP3.png';
-
+import { Link } from 'react-router-dom';
 const Navbar = () => {
   const [roll, setRoll] = useState(false);
 
@@ -27,43 +27,43 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 p-4 transition duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 p-4 text-xl transition duration-300 ${
         roll || menuOpen ? 'bg-mainColor' : 'bg-transparent'
       }`}
     >
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <span className="w-12 h-12 ml-5">
-            <a href="#">
+          <span className="w-14 h-14 ml-5">
+            <Link to="/">
               <img
                 src={logoTP}
                 alt=""
                 href="#"
-                className="pt-1 hover:scale-105 transition-all"
+                className="pt-1 hover:scale-110 transition-all"
               ></img>
-            </a>
+            </Link>
           </span>
           <ul className="hidden sm:flex space-x-6 text-white">
-            <a href="#">
+            <Link to="/shop">
               <li className="p-2 hover:bg-pColor rounded-sm transition-all">
                 Sklep
               </li>
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="/cart">
               <li className="p-2 hover:bg-pColor rounded-sm transition-all">
                 Koszyk
               </li>
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="/login">
               <li className="p-2 hover:bg-pColor rounded-sm transition-all">
                 Login
               </li>
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="/registration">
               <li className="p-2 hover:bg-pColor rounded-sm transition-all">
                 Rejestracja
               </li>
-            </a>
+            </Link>
           </ul>
           <i
             className="bx bx-menu !block pr-4 sm:!hidden text-white text-5xl  cursor-pointer"
@@ -75,26 +75,26 @@ const Navbar = () => {
             }`}
             style={{ transition: 'transform 0.4s ease, opacity 0.3s ease' }}
           >
-            <a href="#">
+            <Link to="/shop">
               <li className="list-none w-full text-center p-3 hover:bg-pColor text-white transition-all">
                 Sklep
               </li>
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="/cart">
               <li className="list-none w-full text-center p-3 hover:bg-pColor text-white transition-all">
                 Koszyk
               </li>
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="/login">
               <li className="list-none w-full text-center p-3 hover:bg-pColor text-white transition-all">
                 Login
               </li>
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="/registration">
               <li className="list-none w-full text-center p-3 hover:bg-pColor text-white transition-all">
                 Rejestracja
               </li>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
