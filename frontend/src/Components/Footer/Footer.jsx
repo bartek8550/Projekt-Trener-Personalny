@@ -1,23 +1,23 @@
-import React from "react";
-import "../../index.css";
-import logoTP from "../../IMG/logoTP3.png";
-import contactIcon from "../../IMG/contactIcon.png";
-import contactIcon2 from "../../IMG/contactIcon2.png";
+import React from 'react';
+import '../../index.css';
+import logoTP from '../../IMG/logoTP3.png';
+import contactIcon from '../../IMG/contactIcon.png';
+import contactIcon2 from '../../IMG/contactIcon2.png';
 
 const Footer = () => {
   return (
     <div className="bg-mainColor bg-center h-max">
       <div className="max-w-4xl mx-auto pt-[6vh] pb-[5vh] text-white">
-        <div className="flex flex-row">
-          <div className="basis-1/2 flex flex-col justify-center mx-5">
-            <div className="flex flex-wrap items-start justify-center mx-2 my-2">
-              <img src={logoTP} className="w-[60px] h-[60px] mx-2"></img>
+        <div className="flex flex-row flex-wrap sm:flex-nowrap">
+          <div className="basis-full flex flex-col justify-start mx-5 sm:basis-1/2">
+            <div className="flex flex-wrap items-start justify-start mx-2 my-2 sm:justify-center">
+              <img src={logoTP} className="w-[60px] h-[60px] mx-2 "></img>
               <h1 className="text-2xl font-medium mx-2">
                 Trener <br /> Personalny
               </h1>
             </div>
             <div>
-              <p className="text-center text-[0.89rem]">
+              <p className="text-left text-[0.89rem] sm:text-center">
                 Serdecznie zapraszam do zapoznania się z materiałami, które
                 przygotowałem. Znajdziesz tam wiele praktycznych wskazówek i
                 inspiracji z zakresu treningu, diety i kształtowania sylwetki.
@@ -26,15 +26,15 @@ const Footer = () => {
               </p>
             </div>
           </div>
-          <div className="basis-1/2 flex flex-col justify-center mx-5">
-            <div className="flex flex-wrap items-start justify-center mx-2 my-2">
+          <div className="basis-full flex flex-col justify-start mx-5 pt-5 sm:basis-1/2 sm:pt-0">
+            <div className="flex flex-wrap items-start justify-start mx-2 my-2 sm:justify-center">
               <img src={contactIcon2} className="w-[60px] h-[60px] mx-2"></img>
               <h1 className="text-2xl font-medium mx-2">
                 Dane <br /> kontaktowe
               </h1>
             </div>
             <div>
-              <p className="text-center text-[0.89rem]">
+              <p className="text-start sm:text-center text-[0.89rem]">
                 Moi podopieczni mogą liczyć na pełne wsparcie – w każdej chwili
                 możecie napisać do mnie maila lub skontaktować się przez media
                 społecznościowe, na przykład przez wiadomość na Instagramie.
@@ -44,9 +44,9 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-2 justify-center">
-          <div className="col-start-2 flex flex-row justify-center items-center">
-            <img src={contactIcon} className="w-[35px] h-[35px] mx-2"></img>
+        <div className="grid grid-cols-1 pl-5 sm:grid-cols-2 pt-2 sm:justify-center">
+          <div className="sm:col-start-2 flex flex-row justify-start items-center sm:justify-center">
+            <img src={contactIcon} className="w-[35px] h-[35px] mr-2"></img>
             <p className="text-[15px]">kontakt@trenerpersonalny.pl</p>
           </div>
         </div>

@@ -18,8 +18,12 @@ const Header = () => {
       </div>
 
       <div className="absolute flex flex-col items-center top-[39vh] text-white">
-        <h1 className="text-7xl font-bold text-pColor mr-[33vh]">TRENER</h1>
-        <h1 className="text-7xl font-bold ml-[31vh]">PERSONALNY</h1>
+        <h1 className="text-3xl mr-[20vw] font-bold text-pColor sm:text-4xl sm:mr-[20vw] md:text-5xl md:mr-[20vw] lg:text-6xl lg:mr-[18vw] 2xl:text-7xl 2xl:mr-[17vw]">
+          TRENER
+        </h1>
+        <h1 className="text-3xl ml-[20vw] font-bold sm:text-4xl sm:ml-[20vw] md:text-5xl md:ml-[20vw] lg:text-6xl lg:ml-[18vw] 2xl:text-7xl 2xl:ml-[17vw]">
+          PERSONALNY
+        </h1>
       </div>
     </div>
   );

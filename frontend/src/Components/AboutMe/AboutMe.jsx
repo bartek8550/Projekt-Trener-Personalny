@@ -5,9 +5,13 @@ import face from '../../IMG/face.jpeg';
 const AboutMe = () => {
   return (
     <div className="max-w-6xl mx-auto px-4">
-      <div className="flex flex-row flex-wrap mt-[15vh] mb-[3vh]">
-        <div className="basis-1/2 pr-5 pl-5">
-          <img src={face} alt="" className="max-h-full shadow-3xl"></img>
+      <div className="sm:flex flex-row flex-wrap mt-[15vh] mb-[3vh]">
+        <div className="hidden sm:block sm:basis-1/2 pr-5 pl-5">
+          <img
+            src={face}
+            alt=""
+            className="hidden sm:block sm:max-h-full sm:shadow-3xl"
+          ></img>
         </div>
         <div className="basis-1/2 pl-5 pr-5">
           <h1 className="text-3xl font-bold mb-10">
@@ -39,12 +43,26 @@ const AboutMe = () => {
             <a href="#" className="col-start-2 pl-5">
               <button
                 type="button"
-                className="motion-safe:hover:-translate-y-0.5 motion-safe:transition bg-pColor text-white font-semibold p-4 mr-5"
+                className=" flex items-center justify-center
+    motion-safe:hover:-translate-y-0.5 
+    motion-safe:transition 
+    bg-pColor text-white font-medium
+    text-[0.8rem] h-[3.3rem] w-[8rem]           
+    sm:text-[0.85rem] sm:h-[3.3rem] sm:w-[8.5rem]
+    lg:text-[1.10rem] lg:h-[4.5rem] lg:w-[11.5rem]
+    "
               >
                 ROZPOCZNIJ WSPÓŁPRACE
               </button>
             </a>
           </div>
+        </div>
+        <div className="basis-full flex justify-center px-5 py-5 sm:hidden">
+          <img
+            src={face}
+            alt=""
+            className="max-h-80 shadow-3xl sm:hidden"
+          ></img>
         </div>
       </div>
     </div>

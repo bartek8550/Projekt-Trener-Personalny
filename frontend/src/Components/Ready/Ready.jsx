@@ -1,12 +1,12 @@
-import React from "react";
-import "../../index.css";
+import React from 'react';
+import '../../index.css';
 
 const Ready = () => {
   return (
     <div className="bg-gymBackgroundImg bg-center h-max">
       <div className="max-w-3xl mx-auto px-4">
-        <div className="basis-full flex justify-center pt-[10vh] pb-[11vh]">
-          <p className="font-bold text-white text-center text-2xl sm:text-3xl lg:text-5xl ">
+        <div className="basis-full flex justify-center pt-[10vh] pb-[7vh]">
+          <p className="font-bold text-white text-center text-4xl lg:text-5xl ">
             Gotowy, by zrobić pierwszy
             <br /> krok w stronę lepszej wersji
             <br /> siebie?
@@ -20,8 +20,7 @@ const Ready = () => {
     motion-safe:hover:-translate-y-0.5 
     motion-safe:transition 
     bg-white text-black font-medium
-    text-[0.8rem] h-[2.5rem] w-[6rem]           
-    sm:text-[0.85rem] sm:h-[2.8rem] sm:w-[8.5rem]
+    text-[1rem] h-[3.5rem] w-[9rem]           
     lg:text-[1.10rem] lg:h-[3.2rem] lg:w-[12.0rem]
     "
             >
