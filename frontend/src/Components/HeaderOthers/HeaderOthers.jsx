@@ -19,7 +19,7 @@ const HeaderOthers = () => {
       style={{ backgroundImage: `url(${navbar})` }}
     >
       <div className="absolute flex flex-col items-center top-[10rem] text-white">
-        <h1 className="text-3xl font-bold text-white sm:text-4xl md:text-5xl  lg:text-6xl">
+        <h1 className="mx-5 text-3xl font-bold text-white sm:text-4xl md:text-5xl">
           {title}
         </h1>
       </div>
