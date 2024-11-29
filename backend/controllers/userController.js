@@ -63,7 +63,7 @@ exports.loginUser = async (req, res, next) => {
       throw new Error('Brak email bądź hasła');
     }
 
-    // Znalezienie użytkownika i jawne dołączenie pola `password`
+    // Znalezienie użytkownika i jawne dołączenie pola password
     const user = await Users.findOne({ email }).select('+password');
 
     // Sprawdzenie, czy użytkownik istnieje i czy hasła się zgadzają

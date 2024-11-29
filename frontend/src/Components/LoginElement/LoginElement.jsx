@@ -1,30 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../index.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const LoginElement = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await axios({
+        method: 'POST',
+        url: 'http://localhost:3000/api/v1/login',
+        data: {
+          email,
+          password,
+        },
+      });
+      localStorage.setItem('token', res.data.token);
+      navigate('/', { replace: true });
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="max-w-6xl min-h-[43.5vh] mx-auto pt-[5vh] pb-[5vh] flex flex-row flex-wrap sm:flex-nowrap">
-      <div className="basis-full items-start sm:basis-1/2 mx-4 flex flex-col flex-wrap justify-center sm:items-end mr-5">
+      <form
+        onSubmit={handleSubmit}
+        className="basis-full items-start sm:basis-1/2 mx-4 flex flex-col flex-wrap justify-center sm:items-end mr-5"
+      >
         <div className="flex flex-col items-left mb-2">
           <h1 className="mr-2">Adres email:</h1>
           <input
-            className="border border-solid border-black w-[200px] md:w-[300px]"
-            type="text"
+            name="email"
+            className="border border-solid border-black w-[200px] md:w-[300px] pl-1"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
         <div className="flex flex-col items-left mb-2">
           <h1 className="mr-2">Hasło:</h1>
           <input
-            className="border border-solid border-black w-[200px] md:w-[300px]"
+            name="password"
+            className="border border-solid border-black w-[200px] md:w-[300px] pl-1"
+            value={password}
             type="password"
+            onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
         <div className="grid grid-cols-2 justify-items-start w-[200px] md:w-[300px]">
           <button
-            type="button"
+            type="submit"
             className="
           flex items-center justify-center
           motion-safe:hover:-translate-y-0.5 
@@ -38,7 +71,7 @@ const LoginElement = () => {
             Zaloguj
           </button>
         </div>
-      </div>
+      </form>
       <div className="basis-full sm:basis-1/2 flex flex-col justify-center ml-5">
         <p>Nie masz konta?</p>
         <Link to="/registration">
