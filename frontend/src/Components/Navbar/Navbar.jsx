@@ -56,12 +56,7 @@ const Navbar = () => {
             </Link>
             <Link to="/login">
               <li className="p-2 hover:bg-pColor rounded-sm transition-all">
-                Login
-              </li>
-            </Link>
-            <Link to="/registration">
-              <li className="p-2 hover:bg-pColor rounded-sm transition-all">
-                Rejestracja
+                Zaloguj/Zarejestruj się
               </li>
             </Link>
           </ul>
@@ -87,12 +82,7 @@ const Navbar = () => {
             </Link>
             <Link to="/login">
               <li className="list-none w-full text-center p-3 hover:bg-pColor text-white transition-all">
-                Login
-              </li>
-            </Link>
-            <Link to="/registration">
-              <li className="list-none w-full text-center p-3 hover:bg-pColor text-white transition-all">
-                Rejestracja
+                Zaloguj/Zarejestruj się
               </li>
             </Link>
           </div>
