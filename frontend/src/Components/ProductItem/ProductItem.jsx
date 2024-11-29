@@ -22,7 +22,7 @@ const ProductItem = ({ product }) => {
     motion-safe:transition 
     bg-pColor text-white font-medium shadow-btn rounded-md mb-5
     text-[0.72rem] h-[2.3rem] w-[7rem]           
-    sm:text-[0.85rem] sm:h-[3.3rem] sm:w-[8.5rem]
+    sm:text-[0.85rem] sm:h-[2.3rem] sm:w-[8.5rem]
     lg:text-[0.90rem] lg:h-[2.5rem] lg:w-[10rem]
     "
         >
