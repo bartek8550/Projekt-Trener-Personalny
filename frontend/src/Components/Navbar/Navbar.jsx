@@ -2,13 +2,16 @@ import React, { useEffect, useState } from 'react';
 import '../../index.css';
 import logoTP from '../../IMG/logoTP3.png';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 const Navbar = () => {
   const [roll, setRoll] = useState(false);
-
+  const navigate = useNavigate();
   //służy do sprawdzenia czy kliknięte menu, jeśli tak to uruchamia jedne właściwości,
   //czyli włącza navbar dla mobile a jeśli nie było kliknięte to nie włącza dla mobile.
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  //obsługa włączenia tła dla navbara po przejechaniu odpowiedniej liczby pixeli
   useEffect(() => {
     const handleScroll = () => {
       const value = 0.2 * window.innerHeight;
@@ -23,6 +26,12 @@ const Navbar = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
+  }, []);
+
+  //Sprawdzenie czy jest token czy nie ma po to by ustawiać przycisk Wylogowania albo Zaloguj/Zarejestruj
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) setIsLoggedIn(true);
   }, []);
 
   return (
@@ -54,11 +63,25 @@ const Navbar = () => {
                 Koszyk
               </li>
             </Link>
-            <Link to="/login">
-              <li className="p-2 hover:bg-pColor rounded-sm transition-all">
-                Zaloguj/Zarejestruj się
+            {isLoggedIn ? (
+              <li
+                className="p-2 hover:bg-pColor rounded-sm transition-all cursor-pointer"
+                onClick={() => {
+                  localStorage.removeItem('token');
+                  setIsLoggedIn(false);
+                  alert('Wylogowano');
+                  navigate('/', { replace: true });
+                }}
+              >
+                Wyloguj się
               </li>
-            </Link>
+            ) : (
+              <Link to="/login">
+                <li className="p-2 hover:bg-pColor rounded-sm transition-all">
+                  Zaloguj/Zarejestruj się
+                </li>
+              </Link>
+            )}
           </ul>
           <i
             className="bx bx-menu !block pr-4 sm:!hidden text-white text-5xl  cursor-pointer"
@@ -80,11 +103,25 @@ const Navbar = () => {
                 Koszyk
               </li>
             </Link>
-            <Link to="/login">
-              <li className="list-none w-full text-center p-3 hover:bg-pColor text-white transition-all">
-                Zaloguj/Zarejestruj się
+            {isLoggedIn ? (
+              <li
+                className="list-none w-full text-center p-3 hover:bg-pColor text-white transition-all cursor-pointer"
+                onClick={() => {
+                  localStorage.removeItem('token');
+                  setIsLoggedIn(false);
+                  alert('Wylogowano');
+                  navigate('/', { replace: true });
+                }}
+              >
+                Wyloguj się
               </li>
-            </Link>
+            ) : (
+              <Link to="/login">
+                <li className="list-none w-full text-center p-3 hover:bg-pColor text-white transition-all">
+                  Zaloguj/Zarejestruj się
+                </li>
+              </Link>
+            )}
           </div>
         </div>
       </div>
