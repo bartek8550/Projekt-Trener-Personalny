@@ -1,7 +1,8 @@
-import React from 'react';
-import '../../index.css';
-import apple from '../../IMG/apple.png';
-import biceps from '../../IMG/biceps.png';
+import React from "react";
+import "../../index.css";
+import apple from "../../IMG/apple.png";
+import biceps from "../../IMG/biceps.png";
+import { motion } from "framer-motion";
 
 function Offer() {
   return (
@@ -9,12 +10,24 @@ function Offer() {
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-row flex-wrap mb-[3vh]">
           <div className="basis-full flex mt-[10vh] mb-[10vh] justify-center">
-            <p className="text-center text-white text-3xl font-bold lg:text-4xl">
+            <motion.p
+              initial={{ opacity: 0, y: "-50px" }}
+              whileInView={{ y: "0", opacity: 1 }}
+              transition={{ type: "spring", stiffness: 30, duration: 2.5 }}
+              viewport={{ once: true }}
+              className="text-center text-white text-3xl font-bold lg:text-4xl"
+            >
               W taki sposób pomagam podopiecznym
-            </p>
+            </motion.p>
           </div>
           <div className="basis-full text-white mt-[3vh] mb-[15vh] flex flex-wrap flex-row justify-between gap-x-8">
-            <div className="basis-full sm:basis-1/3 flex flex-col items-center">
+            <motion.div
+              initial={{ opacity: 0, x: "-150px" }}
+              whileInView={{ x: "0", opacity: 1 }}
+              transition={{ type: "spring", stiffness: 30, duration: 2 }}
+              viewport={{ once: true }}
+              className="basis-full sm:basis-1/3 flex flex-col items-center"
+            >
               <img src={apple} alt="" className="max-h-20 mb-4"></img>
               <h1 className="text-2xl font-semibold mb-2">Plany dietetyczne</h1>
               <p className="text-center">
@@ -22,8 +35,14 @@ function Offer() {
                 składników odżywczych i minerałów niezbędnych do prawidłowego
                 funkcjonowania organizmu i lepszego samopoczucia.
               </p>
-            </div>
-            <div className="basis-full pt-[5vh] sm:basis-1/3 sm:pt-0 flex flex-col items-center">
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: "150px" }}
+              whileInView={{ x: "0", opacity: 1 }}
+              transition={{ type: "spring", stiffness: 30, duration: 2 }}
+              viewport={{ once: true }}
+              className="basis-full pt-[5vh] sm:basis-1/3 sm:pt-0 flex flex-col items-center"
+            >
               <img src={biceps} alt="" className="max-h-20 mb-4"></img>
               <h1 className="text-2xl font-semibold mb-2">Plany treningowe</h1>
               <p className="text-center">
@@ -33,7 +52,7 @@ function Offer() {
                 przyjemnością pokonujesz kolejne kroki na drodze do wymarzonej
                 sylwetki.
               </p>
-            </div>
+            </motion.div>
           </div>
 
           <div className="basis-full flex flex-row justify-center mb-[10vh]">
