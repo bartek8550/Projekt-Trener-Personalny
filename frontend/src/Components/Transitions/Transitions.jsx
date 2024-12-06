@@ -8,6 +8,7 @@ import photo2 from '../../IMG/photo2.jpeg';
 import photo3 from '../../IMG/photo3.jpeg';
 import photo4 from '../../IMG/photo4.jpeg';
 import photo5 from '../../IMG/photo5.jpeg';
+import { easeIn, easeInOut, motion } from 'framer-motion';
 
 const Transitions = () => {
   const [slides, setSlides] = useState(3);
@@ -38,16 +39,41 @@ const Transitions = () => {
     <div className="bg-carouselBackgroundImg h-max">
       <div className="max-w-6xl mx-auto px-4">
         <div className="basis-full flex justify-center pt-[10vh] pb-[11vh] sm:mt-[3vh] mb-[3vh] lg:mt-[6vh] mb-[3vh]">
-          <p className="font-bold text-white text-center text-3xl lg:text-4xl ">
+          <motion.p
+            initial={{ opacity: 0, y: '-100px' }}
+            whileInView={{ y: '0', opacity: 1 }}
+            transition={{
+              type: 'spring',
+              stiffness: 30,
+              duration: 2,
+              ease: easeIn,
+              delay: 0.3,
+            }}
+            viewport={{ once: true }}
+            className="font-bold text-white text-center text-3xl lg:text-4xl "
+          >
             Przemiany moich podopiecznych
-          </p>
+          </motion.p>
         </div>
         <div className="basis-full px-2 py-5">
-          <Slider {...settings}>
-            {imgs.map((entry) => (
-              <img src={entry.img} alt="" className="px-2"></img>
-            ))}
-          </Slider>
+          <motion.div
+            initial={{ opacity: 0, x: '-300px' }}
+            whileInView={{ x: '0', opacity: 1 }}
+            transition={{
+              type: 'spring',
+              stiffness: 20,
+              duration: 4,
+              ease: easeIn,
+              delay: 0.3,
+            }}
+            viewport={{ once: true }}
+          >
+            <Slider {...settings}>
+              {imgs.map((entry) => (
+                <img src={entry.img} alt="" className="px-2"></img>
+              ))}
+            </Slider>
+          </motion.div>
         </div>
         <div className="basis-full flex flex-row justify-center py-[10vh]">
           <a href="#" className="">

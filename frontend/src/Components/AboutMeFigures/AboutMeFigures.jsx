@@ -1,6 +1,6 @@
-import React from "react";
-import "../../index.css";
-import { motion } from "framer-motion";
+import React from 'react';
+import '../../index.css';
+import { motion } from 'framer-motion';
 
 const AboutMeFigures = () => {
   return (
@@ -10,16 +10,21 @@ const AboutMeFigures = () => {
       </div>
       <div className="flex flex-row max-w-6xl mx-auto px-1 mt-[3vh] mb-[3.5vh]">
         <motion.div
-          initial={{ opacity: 0, y: "50px" }}
-          whileInView={{ y: "0", opacity: 1 }}
-          transition={{ type: "spring", stiffness: 30, duration: 1.5 }}
+          initial={{ opacity: 0, y: '50px' }}
+          whileInView={{ y: '0', opacity: 1 }}
+          transition={{
+            type: 'spring',
+            stiffness: 30,
+            duration: 1.5,
+            delay: 0.25,
+          }}
           viewport={{ once: true }}
           className="basis-1/3 flex flex-col justify-center items-center"
         >
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
             className="text-3xl font-semibold lg:text-4xl xl:text-5xl"
           >
             10
@@ -29,9 +34,14 @@ const AboutMeFigures = () => {
           </p>
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, y: "50px" }}
-          whileInView={{ y: "0", opacity: 1 }}
-          transition={{ type: "spring", stiffness: 30, duration: 1.5 }}
+          initial={{ opacity: 0, y: '50px' }}
+          whileInView={{ y: '0', opacity: 1 }}
+          transition={{
+            type: 'spring',
+            stiffness: 30,
+            duration: 1.5,
+            delay: 0.25,
+          }}
           viewport={{ once: true }}
           className="basis-1/3 flex flex-col justify-center items-center"
         >
@@ -41,9 +51,14 @@ const AboutMeFigures = () => {
           </p>
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, y: "50px" }}
-          whileInView={{ y: "0", opacity: 1 }}
-          transition={{ type: "spring", stiffness: 30, duration: 1.5 }}
+          initial={{ opacity: 0, y: '50px' }}
+          whileInView={{ y: '0', opacity: 1 }}
+          transition={{
+            type: 'spring',
+            stiffness: 30,
+            duration: 1.5,
+            delay: 0.25,
+          }}
           viewport={{ once: true }}
           className="basis-1/3 flex flex-col justify-center items-center"
         >

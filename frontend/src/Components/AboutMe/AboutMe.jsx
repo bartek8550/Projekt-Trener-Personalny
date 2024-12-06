@@ -1,7 +1,7 @@
-import React from "react";
-import "../../index.css";
-import face from "../../IMG/face.jpeg";
-import { motion } from "framer-motion";
+import React from 'react';
+import '../../index.css';
+import face from '../../IMG/face.jpeg';
+import { motion } from 'framer-motion';
 
 const AboutMe = () => {
   return (
@@ -11,7 +11,7 @@ const AboutMe = () => {
           <motion.img
             initial={{ opacity: 0, scale: 0 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.75 }}
+            transition={{ duration: 0.75, delay: 0.3 }}
             viewport={{ once: true }}
             src={face}
             alt=""
@@ -21,7 +21,7 @@ const AboutMe = () => {
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
           viewport={{ once: true }}
           className="basis-1/2 pl-5 pr-5"
         >
@@ -72,7 +72,7 @@ const AboutMe = () => {
           <motion.img
             initial={{ opacity: 0, scale: 0 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.75 }}
+            transition={{ duration: 0.75, delay: 0.3 }}
             viewport={{ once: true }}
             src={face}
             alt=""

@@ -1,16 +1,27 @@
 import React from 'react';
 import '../../index.css';
-
+import { motion } from 'framer-motion';
 const Ready = () => {
   return (
     <div className="bg-gymBackgroundImg bg-center h-max">
       <div className="max-w-3xl mx-auto px-4">
         <div className="basis-full flex justify-center pt-[10vh] pb-[7vh]">
-          <p className="font-bold text-white text-center text-4xl lg:text-5xl ">
+          <motion.p
+            initial={{ opacity: 0, y: '-150px' }}
+            whileInView={{ y: '0', opacity: 1 }}
+            transition={{
+              type: 'spring',
+              stiffness: 20,
+              duration: 4,
+              delay: 0.3,
+            }}
+            viewport={{ once: true }}
+            className="font-bold text-white text-center text-4xl lg:text-5xl "
+          >
             Gotowy, by zrobić pierwszy
             <br /> krok w stronę lepszej wersji
             <br /> siebie?
-          </p>
+          </motion.p>
         </div>
         <div className="basis-full flex flex-row justify-center items-center pb-[10vh]">
           <a href="#" className="">

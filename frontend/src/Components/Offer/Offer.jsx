@@ -1,8 +1,8 @@
-import React from "react";
-import "../../index.css";
-import apple from "../../IMG/apple.png";
-import biceps from "../../IMG/biceps.png";
-import { motion } from "framer-motion";
+import React from 'react';
+import '../../index.css';
+import apple from '../../IMG/apple.png';
+import biceps from '../../IMG/biceps.png';
+import { motion } from 'framer-motion';
 
 function Offer() {
   return (
@@ -11,9 +11,14 @@ function Offer() {
         <div className="flex flex-row flex-wrap mb-[3vh]">
           <div className="basis-full flex mt-[10vh] mb-[10vh] justify-center">
             <motion.p
-              initial={{ opacity: 0, y: "-50px" }}
-              whileInView={{ y: "0", opacity: 1 }}
-              transition={{ type: "spring", stiffness: 30, duration: 2.5 }}
+              initial={{ opacity: 0, y: '-50px' }}
+              whileInView={{ y: '0', opacity: 1 }}
+              transition={{
+                type: 'spring',
+                stiffness: 30,
+                duration: 2.5,
+                delay: 0.3,
+              }}
               viewport={{ once: true }}
               className="text-center text-white text-3xl font-bold lg:text-4xl"
             >
@@ -22,9 +27,14 @@ function Offer() {
           </div>
           <div className="basis-full text-white mt-[3vh] mb-[15vh] flex flex-wrap flex-row justify-between gap-x-8">
             <motion.div
-              initial={{ opacity: 0, x: "-150px" }}
-              whileInView={{ x: "0", opacity: 1 }}
-              transition={{ type: "spring", stiffness: 30, duration: 2 }}
+              initial={{ opacity: 0, x: '-150px' }}
+              whileInView={{ x: '0', opacity: 1 }}
+              transition={{
+                type: 'spring',
+                stiffness: 30,
+                duration: 2,
+                delay: 0.3,
+              }}
               viewport={{ once: true }}
               className="basis-full sm:basis-1/3 flex flex-col items-center"
             >
@@ -37,9 +47,14 @@ function Offer() {
               </p>
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, x: "150px" }}
-              whileInView={{ x: "0", opacity: 1 }}
-              transition={{ type: "spring", stiffness: 30, duration: 2 }}
+              initial={{ opacity: 0, x: '150px' }}
+              whileInView={{ x: '0', opacity: 1 }}
+              transition={{
+                type: 'spring',
+                stiffness: 30,
+                duration: 2,
+                delay: 0.3,
+              }}
               viewport={{ once: true }}
               className="basis-full pt-[5vh] sm:basis-1/3 sm:pt-0 flex flex-col items-center"
             >
