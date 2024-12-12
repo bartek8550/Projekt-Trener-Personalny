@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import '../../index.css';
 import ProductItem from '../ProductItem/ProductItem';
+import { CartContext } from '../../store/CartContext';
 
 const Products = () => {
+  const { product_list } = useContext(CartContext);
+
   const [loadedProducts, setLoadedProducts] = useState([]);
 
   useEffect(() => {
@@ -33,7 +36,7 @@ const Products = () => {
         <h1 className="text-[20px] mb-1">Plany Dietetyczne</h1>
         <div className="flex flex-wrap justify-between">
           {diets.map((product) => (
-            <ProductItem key={product.id} product={product} />
+            <ProductItem key={product._id} product={product} />
           ))}
         </div>
       </div>
@@ -41,7 +44,7 @@ const Products = () => {
         <h1 className="pt-[2vh] text-[20px] mb-1">Plany Treningowe</h1>
         <ul className="flex flex-wrap justify-between">
           {trainings.map((product) => (
-            <ProductItem key={product.id} product={product} />
+            <ProductItem key={product._id} product={product} />
           ))}
         </ul>
       </div>

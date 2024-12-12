@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../../index.css';
+import { CartContext } from '../../store/CartContext';
 
 const ProductItem = ({ product }) => {
+  const { addToCart } = useContext(CartContext);
+
   return (
     <div className="flex flex-col">
       <img
@@ -25,6 +28,7 @@ const ProductItem = ({ product }) => {
     sm:text-[0.85rem] sm:h-[2.3rem] sm:w-[8.5rem]
     lg:text-[0.90rem] lg:h-[2.5rem] lg:w-[10rem]
     "
+          onClick={() => addToCart(product._id)}
         >
           Dodaj do koszyka
         </button>

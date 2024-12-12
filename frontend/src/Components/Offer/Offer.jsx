@@ -3,6 +3,7 @@ import '../../index.css';
 import apple from '../../IMG/apple.png';
 import biceps from '../../IMG/biceps.png';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 function Offer() {
   return (
@@ -71,7 +72,7 @@ function Offer() {
           </div>
 
           <div className="basis-full flex flex-row justify-center mb-[10vh]">
-            <a href="#" className="">
+            <Link to="/shop">
               <button
                 type="button"
                 className=" flex items-center justify-center
@@ -85,7 +86,7 @@ function Offer() {
               >
                 ZOBACZ PRODUKTY
               </button>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

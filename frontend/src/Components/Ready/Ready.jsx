@@ -1,6 +1,8 @@
 import React from 'react';
 import '../../index.css';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+
 const Ready = () => {
   return (
     <div className="bg-gymBackgroundImg bg-center h-max">
@@ -24,7 +26,7 @@ const Ready = () => {
           </motion.p>
         </div>
         <div className="basis-full flex flex-row justify-center items-center pb-[10vh]">
-          <a href="#" className="">
+          <Link to="/shop">
             <button
               type="button"
               className=" flex items-center justify-center
@@ -37,7 +39,7 @@ const Ready = () => {
             >
               ZACZYNAJMY!
             </button>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

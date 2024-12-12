@@ -2,6 +2,7 @@ import React from 'react';
 import '../../index.css';
 import face from '../../IMG/face.jpeg';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const AboutMe = () => {
   return (
@@ -51,7 +52,7 @@ const AboutMe = () => {
         </motion.div>
         <div className="grid grid-cols-2 w-full h-[15vh]">
           <div className="flex justify-center items-center col-start-2">
-            <a href="#" className="col-start-2 pl-5">
+            <Link to="/shop" className="col-start-2 pl-5">
               <button
                 type="button"
                 className=" flex items-center justify-center
@@ -65,7 +66,7 @@ const AboutMe = () => {
               >
                 ROZPOCZNIJ WSPÓŁPRACE
               </button>
-            </a>
+            </Link>
           </div>
         </div>
         <div className="basis-full flex justify-center px-5 py-5 sm:hidden">
