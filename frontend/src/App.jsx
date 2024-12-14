@@ -5,6 +5,7 @@ import Home from './Pages/Home/Home';
 import Shop from './Pages/Shop/Shop';
 import Cart from './Pages/Cart/Cart';
 import Login from './Pages/Login/Login';
+import Verify from './Pages/Verify/Verify';
 import Registration from './Pages/Registration/Registration';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
 
@@ -31,6 +32,7 @@ const App = () => {
         />
         <Route path="/login" element={<Login />} />
         <Route path="/registration" element={<Registration />} />
+        <Route path="/verify" element={<Verify />} />
       </Routes>
     </div>
   );

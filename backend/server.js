@@ -15,6 +15,7 @@ app.use(express.urlencoded({ extended: true })); // Do obsługi danych formularz
 const productRoutes = require('./routes/productRoutes');
 const userRoutes = require('./routes/userRoutes');
 const cartRoutes = require('./routes/cartRoutes');
+const orderRoutes = require('./routes/orderRoutes');
 
 //Uruchoemienie serwera, połączenie z bazą mongo i nasłuchiwanie na porcie
 const startServ = async () => {
@@ -38,6 +39,7 @@ app.use('/api/v1', productRoutes);
 app.use('/api/v1', userRoutes);
 
 app.use('/api/v1', cartRoutes);
+app.use('/api/v1', orderRoutes);
 
 app.get('/', (req, res) => {
   res.send('Express app is running');

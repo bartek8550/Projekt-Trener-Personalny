@@ -1,10 +1,52 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../../store/CartContext';
+import { jwtDecode } from 'jwt-decode';
+import axios from 'axios';
 
 const CartComponent = () => {
-  const { cartItems, product_list, removeFromCart, getTotalCart } =
+  const { cartItems, product_list, removeFromCart, getTotalCart, token } =
     useContext(CartContext);
+
   const hasItemsInCart = Object.values(cartItems).some((count) => count > 0);
+  const placeOrder = async () => {
+    let orderItems = [];
+    product_list.map((product) => {
+      if (cartItems[product._id] > 0) {
+        orderItems.push({
+          ...product,
+          quantity: cartItems[product._id],
+        });
+      }
+    });
+
+    if (orderItems.length === 0) {
+      alert('Koszyk jest pusty!');
+      return;
+    }
+
+    try {
+      const response = await axios.post(
+        'http://localhost:3000/api/v1/order',
+        {
+          userID: jwtDecode(token)._id, // Wydobywanie ID użytkownika z tokena
+          products: orderItems,
+          count: getTotalCart(),
+        },
+        { headers: { token } }
+      );
+
+      if (response.data.success) {
+        const { session_url } = response.data;
+        window.location.replace(session_url);
+      } else {
+        console.error('Niepowodzenie:', response.data.message);
+        alert('Wystąpił problem przy składaniu zamówienia.');
+      }
+    } catch (err) {
+      console.error('Błąd żądania:', err);
+      alert('Błąd podczas przetwarzania zamówienia.');
+    }
+  };
   return (
     <div className="max-w-5xl min-h-[43.5vh] mx-auto pt-[5vh] pb-[5vh] flex justify-center items-center">
       {hasItemsInCart ? (
@@ -52,7 +94,7 @@ const CartComponent = () => {
               </p>
             </div>
             <button
-              type="submit"
+              type="button"
               className="
           flex items-center justify-center 
           motion-safe:hover:-translate-y-0.5 
@@ -62,6 +104,7 @@ const CartComponent = () => {
           sm:text-[0.85rem] sm:h-[2.3rem] sm:w-[8.5rem]
           lg:text-[0.90rem] lg:h-[2.5rem] lg:w-[10rem]
         "
+              onClick={placeOrder}
             >
               Zamawiam i płacę
             </button>

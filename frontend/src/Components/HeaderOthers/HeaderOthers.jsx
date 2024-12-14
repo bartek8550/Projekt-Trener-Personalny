@@ -9,6 +9,7 @@ const HeaderOthers = () => {
     '/cart': 'Zamówienie',
     '/login': 'Logowanie',
     '/registration': 'Rejestracja',
+    '/verify': 'Przetwarzanie zakończone',
   };
 
   let title = pages[loc.pathname];
