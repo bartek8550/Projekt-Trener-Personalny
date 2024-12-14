@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import '../../index.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { CartContext } from '../../store/CartContext';
 
 const RegisterElement = () => {
   const [username, setUsername] = useState('');
@@ -10,7 +11,7 @@ const RegisterElement = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-
+  const { setToken } = useContext(CartContext);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -25,6 +26,7 @@ const RegisterElement = () => {
           password,
         },
       });
+      setToken(res.data.token);
       localStorage.setItem('token', res.data.token);
       navigate('/', { replace: true });
     } catch (error) {

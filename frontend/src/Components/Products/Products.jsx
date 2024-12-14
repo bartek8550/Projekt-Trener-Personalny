@@ -6,27 +6,10 @@ import { CartContext } from '../../store/CartContext';
 const Products = () => {
   const { product_list } = useContext(CartContext);
 
-  const [loadedProducts, setLoadedProducts] = useState([]);
-
-  useEffect(() => {
-    async function fetchProducts() {
-      const res = await fetch('http://localhost:3000/api/v1/products');
-
-      if (!res.ok) {
-        //..
-      }
-
-      const products = await res.json();
-      setLoadedProducts(products.data.products);
-    }
-
-    fetchProducts();
-  }, []);
-
-  const diets = loadedProducts.filter(
+  const diets = product_list.filter(
     (product) => product.title === 'Plan dietetyczny'
   );
-  const trainings = loadedProducts.filter(
+  const trainings = product_list.filter(
     (product) => product.title === 'Plan treningowy'
   );
 
