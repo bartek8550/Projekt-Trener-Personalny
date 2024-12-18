@@ -17,7 +17,7 @@ const LoginElement = () => {
     try {
       const res = await axios({
         method: 'POST',
-        url: 'http://localhost:3000/api/v1/login',
+        url: 'https://projekt-trener-personalny.onrender.com/api/v1/login',
         data: {
           email,
           password,

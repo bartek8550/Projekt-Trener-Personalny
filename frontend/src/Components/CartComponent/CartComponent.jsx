@@ -26,7 +26,7 @@ const CartComponent = () => {
 
     try {
       const response = await axios.post(
-        'http://localhost:3000/api/v1/order',
+        'https://projekt-trener-personalny.onrender.com/api/v1/order',
         {
           userID: jwtDecode(token)._id, // Wydobywanie ID użytkownika z tokena
           products: orderItems,

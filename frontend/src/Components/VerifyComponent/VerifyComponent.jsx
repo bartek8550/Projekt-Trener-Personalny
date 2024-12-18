@@ -12,10 +12,13 @@ const VerifyComponent = () => {
 
   const verifyPayment = async () => {
     try {
-      const res = await axios.post('http://localhost:3000/api/v1/verify', {
-        success,
-        orderId,
-      });
+      const res = await axios.post(
+        'https://projekt-trener-personalny.onrender.com/api/v1/verify',
+        {
+          success,
+          orderId,
+        }
+      );
 
       if (res.data.success) {
         setInfo(

@@ -4,7 +4,7 @@ export const CartContext = createContext(null);
 
 const CartContextProvider = (props) => {
   const [cartItems, setCartitems] = useState({});
-  const url = 'http://localhost:3000';
+  const url = 'https://projekt-trener-personalny.onrender.com';
   const [token, setToken] = useState('');
   const [product_list, setProductList] = useState([]);
 

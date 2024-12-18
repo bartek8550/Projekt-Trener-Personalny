@@ -7,7 +7,7 @@ const path = require('path');
 const stripe = new Stripe(process.env.STRIPE_S);
 
 exports.orderPlace = async (req, res) => {
-  const frontUrl = 'http://localhost:5000';
+  const frontUrl = 'https://trenerpersonalny.netlify.app';
   try {
     const newOrder = new Order({
       userID: req.body.userID,
