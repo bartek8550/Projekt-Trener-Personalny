@@ -3,17 +3,17 @@ import './../../index.css';
 import Footer from './../../Components/Footer/Footer';
 import Navbar from './../../Components/Navbar/Navbar';
 import HeaderOthers from './../../Components/HeaderOthers/HeaderOthers';
-import CartComponent from '../../Components/CartComponent/CartComponent';
+import VerifyComponent from './../../Components/VerifyComponent/VerifyComponent';
 
-const Cart = () => {
+const Verify = () => {
   return (
     <div>
       <HeaderOthers />
       <Navbar />
-      <CartComponent />
+      <VerifyComponent />
       <Footer />
     </div>
   );
 };
 
-export default Cart;
+export default Verify;

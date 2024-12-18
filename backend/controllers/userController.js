@@ -17,25 +17,15 @@ exports.createUser = async (req, res) => {
         errors: 'Znaleziono użytkownika o podanym adresie email',
       });
     }
-    let cart = {};
-    for (let i = 0; i < 100; ++i) {
-      cart[i] = 0;
-    }
+
     const user = new Users({
       name: req.body.username,
       surname: req.body.surname,
       email: req.body.email,
       password: req.body.password,
-      cartData: cart,
     });
 
     await user.save();
-
-    const dataUser = {
-      user: {
-        id: user._id,
-      },
-    };
 
     const token = sign(user._id);
 

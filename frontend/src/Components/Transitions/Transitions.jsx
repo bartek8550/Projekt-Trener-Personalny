@@ -8,7 +8,8 @@ import photo2 from '../../IMG/photo2.jpeg';
 import photo3 from '../../IMG/photo3.jpeg';
 import photo4 from '../../IMG/photo4.jpeg';
 import photo5 from '../../IMG/photo5.jpeg';
-import { easeIn, easeInOut, motion } from 'framer-motion';
+import { easeIn, motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Transitions = () => {
   const [slides, setSlides] = useState(3);
@@ -76,7 +77,7 @@ const Transitions = () => {
           </motion.div>
         </div>
         <div className="basis-full flex flex-row justify-center py-[10vh]">
-          <a href="#" className="">
+          <Link to="/shop">
             <button
               type="button"
               className=" flex items-center justify-center
@@ -90,7 +91,7 @@ const Transitions = () => {
             >
               ZACZNIJ SWOJĄ PRZEMIANĘ
             </button>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

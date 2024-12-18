@@ -2,6 +2,7 @@ import React from 'react';
 import '../../index.css';
 import navbar from '../../IMG/navbar.jpg';
 import { useLocation } from 'react-router-dom'; //Dzięki temu wiemy gdzie jesteśmy na jakiej stronie
+
 const HeaderOthers = () => {
   const loc = useLocation();
   const pages = {
@@ -9,6 +10,7 @@ const HeaderOthers = () => {
     '/cart': 'Zamówienie',
     '/login': 'Logowanie',
     '/registration': 'Rejestracja',
+    '/verify': 'Przetwarzanie zakończone',
   };
 
   let title = pages[loc.pathname];
