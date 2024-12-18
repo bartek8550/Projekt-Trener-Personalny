@@ -25,6 +25,7 @@ const AboutMeFigures = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.25 }}
+            viewport={{ once: true }}
             className="text-3xl font-semibold lg:text-4xl xl:text-5xl"
           >
             10
