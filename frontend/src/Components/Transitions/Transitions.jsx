@@ -8,7 +8,7 @@ import photo2 from '../../IMG/photo2.jpeg';
 import photo3 from '../../IMG/photo3.jpeg';
 import photo4 from '../../IMG/photo4.jpeg';
 import photo5 from '../../IMG/photo5.jpeg';
-import { easeIn, easeInOut, motion } from 'framer-motion';
+import { easeIn, motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const Transitions = () => {

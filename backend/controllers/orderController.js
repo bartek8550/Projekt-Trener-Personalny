@@ -90,7 +90,10 @@ exports.verifyOrder = async (req, res) => {
     }
 
     if (success === 'true') {
-      await Order.findByIdAndUpdate(orderId, { payment: true });
+      await Order.findByIdAndUpdate(orderId, {
+        payment: true,
+        status: 'Opłacone',
+      });
 
       const attachments = order.products.map((product) => {
         const pdfPath = path.join(__dirname, '../pdf', `${product._id}.pdf`);

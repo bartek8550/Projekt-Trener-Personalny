@@ -2,7 +2,7 @@ import React from 'react';
 import '../../index.css';
 import headerMan from '../../IMG/headerMan.png';
 import navbar from '../../IMG/navbar.jpg';
-import { easeIn, easeInOut, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const Header = () => {
   return (

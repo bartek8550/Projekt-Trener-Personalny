@@ -31,7 +31,6 @@ const startServ = async () => {
 
 startServ();
 //obsługa zdjęć z folderu
-//app.use('/images', express.static(path.join(__dirname, 'frontend/IMG')));
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
 //trasowanie na produkty
 app.use('/api/v1', productRoutes);

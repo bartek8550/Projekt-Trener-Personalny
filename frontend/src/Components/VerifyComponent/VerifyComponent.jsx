@@ -42,7 +42,7 @@ const VerifyComponent = () => {
     <div className="max-w-5xl min-h-[53.5vh] mx-auto pt-[5vh] pb-[5vh] flex flex-col justify-center items-center">
       <div>
         <p className="text-3xl text-center">{info}</p>
-        <p className="text-xl">
+        <p className="text-xl text-center">
           Za chwilę zostaniesz przekierowany na stronę główną
         </p>
       </div>

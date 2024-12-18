@@ -2,6 +2,7 @@ import React from 'react';
 import '../../index.css';
 import navbar from '../../IMG/navbar.jpg';
 import { useLocation } from 'react-router-dom'; //Dzięki temu wiemy gdzie jesteśmy na jakiej stronie
+
 const HeaderOthers = () => {
   const loc = useLocation();
   const pages = {

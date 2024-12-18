@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import '../../index.css';
 import ProductItem from '../ProductItem/ProductItem';
 import { CartContext } from '../../store/CartContext';
@@ -6,12 +6,13 @@ import { CartContext } from '../../store/CartContext';
 const Products = () => {
   const { product_list } = useContext(CartContext);
 
-  const diets = product_list.filter(
-    (product) => product.title === 'Plan dietetyczny'
-  );
-  const trainings = product_list.filter(
-    (product) => product.title === 'Plan treningowy'
-  );
+  const diets = product_list
+    .filter((product) => product.title === 'Plan dietetyczny')
+    .sort((a, b) => a.price - b.price);
+
+  const trainings = product_list
+    .filter((product) => product.title === 'Plan treningowy')
+    .sort((a, b) => a.price - b.price);
 
   return (
     <div className="max-w-7xl mx-auto pt-[5vh] pb-[5vh]">
