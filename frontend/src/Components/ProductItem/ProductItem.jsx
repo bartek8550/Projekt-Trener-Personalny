@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
-import "../../index.css";
-import { CartContext } from "../../store/CartContext";
+import React, { useContext } from 'react';
+import '../../index.css';
+import { CartContext } from '../../store/CartContext';
 
 const ProductItem = ({ product }) => {
   const { addToCart } = useContext(CartContext);
@@ -8,7 +8,7 @@ const ProductItem = ({ product }) => {
   return (
     <div className="flex flex-col">
       <img
-        src={`http://localhost:3000/images/${product.image}`}
+        src={`https://projekt-trener-personalny.onrender.com/images/${product.image}`} //https://projekt-trener-personalny.onrender.com //http://localhost:3000
         alt={product.title}
         className="w-[150px] h-[150px] rounded-md md:w-[175px] md:h-[175px] lg:w-[275px] lg:h-[275px]"
       />

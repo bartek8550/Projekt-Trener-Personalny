@@ -1,31 +1,31 @@
-import { createContext, useEffect, useState } from "react";
-import axios from "axios";
+import { createContext, useEffect, useState } from 'react';
+import axios from 'axios';
 export const CartContext = createContext(null);
 
 const CartContextProvider = (props) => {
   const [cartItems, setCartitems] = useState({});
-  const url = "http://localhost:3000";
-  const [token, setToken] = useState("");
+  const url = 'https://projekt-trener-personalny.onrender.com'; //https://projekt-trener-personalny.onrender.com //http://localhost:3000
+  const [token, setToken] = useState('');
   const [product_list, setProductList] = useState([]);
 
   const addToCart = async (itemId) => {
     if (!cartItems[itemId]) {
       setCartitems((prev) => ({ ...prev, [itemId]: 1 }));
-      alert("Dodano do koszyka");
+      alert('Dodano do koszyka');
     } else {
-      alert("Możesz zamówić tylko jeden produkt tego rodzaju");
+      alert('Możesz zamówić tylko jeden produkt tego rodzaju');
     }
     if (token) {
-      await axios.post(url + "/api/v1/add", { itemId }, { headers: { token } });
+      await axios.post(url + '/api/v1/add', { itemId }, { headers: { token } });
     }
   };
 
   const removeFromCart = async (itemId) => {
     setCartitems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
-    alert("Usunięto z koszyka");
+    alert('Usunięto z koszyka');
     if (token) {
       await axios.post(
-        url + "/api/v1/remove",
+        url + '/api/v1/remove',
         { itemId },
         { headers: { token } }
       );
@@ -47,7 +47,7 @@ const CartContextProvider = (props) => {
 
   useEffect(() => {
     async function fetchProducts() {
-      const res = await fetch(url + "/api/v1/products");
+      const res = await fetch(url + '/api/v1/products');
 
       const products = await res.json();
       setProductList(products.data.products);
@@ -58,7 +58,7 @@ const CartContextProvider = (props) => {
 
   const loadCart = async (token) => {
     const res = await axios.post(
-      url + "/api/v1/getCart",
+      url + '/api/v1/getCart',
       {},
       { headers: { token } }
     );
@@ -67,9 +67,9 @@ const CartContextProvider = (props) => {
 
   useEffect(() => {
     async function load() {
-      if (localStorage.getItem("token")) {
-        setToken(localStorage.getItem("token"));
-        await loadCart(localStorage.getItem("token"));
+      if (localStorage.getItem('token')) {
+        setToken(localStorage.getItem('token'));
+        await loadCart(localStorage.getItem('token'));
       }
     }
     load();

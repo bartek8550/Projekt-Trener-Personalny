@@ -18,7 +18,7 @@ const RegisterElement = () => {
     try {
       const res = await axios({
         method: 'POST',
-        url: 'http://localhost:3000/api/v1/signup',
+        url: 'https://projekt-trener-personalny.onrender.com/api/v1/signup', //https://projekt-trener-personalny.onrender.com //http://localhost:3000
         data: {
           username,
           surname,

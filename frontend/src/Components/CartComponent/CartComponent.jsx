@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
-import { CartContext } from "../../store/CartContext";
-import { jwtDecode } from "jwt-decode";
-import axios from "axios";
+import React, { useContext } from 'react';
+import { CartContext } from '../../store/CartContext';
+import { jwtDecode } from 'jwt-decode';
+import axios from 'axios';
 
 const CartComponent = () => {
   const { cartItems, product_list, removeFromCart, getTotalCart, token } =
@@ -20,13 +20,13 @@ const CartComponent = () => {
     });
 
     if (orderItems.length === 0) {
-      alert("Koszyk jest pusty!");
+      alert('Koszyk jest pusty!');
       return;
     }
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/v1/order", //http://localhost:3000 https://projekt-trener-personalny.onrender.com
+        'https://projekt-trener-personalny.onrender.com/api/v1/order', //http://localhost:3000 https://projekt-trener-personalny.onrender.com
         {
           userID: jwtDecode(token)._id, // Wydobywanie ID użytkownika z tokena
           products: orderItems,
@@ -39,12 +39,12 @@ const CartComponent = () => {
         const { session_url } = response.data;
         window.location.replace(session_url);
       } else {
-        console.error("Niepowodzenie:", response.data.message);
-        alert("Wystąpił problem przy składaniu zamówienia.");
+        console.error('Niepowodzenie:', response.data.message);
+        alert('Wystąpił problem przy składaniu zamówienia.');
       }
     } catch (err) {
-      console.error("Błąd żądania:", err);
-      alert("Błąd podczas przetwarzania zamówienia.");
+      console.error('Błąd żądania:', err);
+      alert('Błąd podczas przetwarzania zamówienia.');
     }
   };
   return (
@@ -87,7 +87,7 @@ const CartComponent = () => {
             <div className="flex flex-col border border-[#111111] rounded-md">
               <p className="text-center mt-1 font-bold">PODSUMOWANIE</p>
               <p className="text-center mb-2 mt-5 mx-3 font-bold">
-                Łącznie:{" "}
+                Łącznie:{' '}
                 <span className="text-pColor text-xl">
                   {getTotalCart().toFixed(2)} zł
                 </span>
