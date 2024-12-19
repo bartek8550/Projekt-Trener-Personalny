@@ -24,7 +24,6 @@ exports.addToCart = async (req, res) => {
 
     res.json({ success: true, message: 'Dodano do koszyka' });
   } catch (err) {
-    console.log(err);
     res.json({ success: false, message: 'Błąd' });
   }
 };
@@ -51,7 +50,6 @@ exports.removeItems = async (req, res) => {
 
     res.json({ success: true, message: 'Usunięto z koszyka' });
   } catch (err) {
-    console.log(err);
     res.json({ success: false, message: 'Błąd' });
   }
 };
@@ -71,7 +69,6 @@ exports.getCart = async (req, res) => {
     let cartData = (await userData.cartData) || {};
     res.json({ success: true, cartData });
   } catch (err) {
-    console.log(err);
     res.json({ success: false, message: 'Błąd' });
   }
 };

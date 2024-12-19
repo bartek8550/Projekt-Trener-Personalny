@@ -1,15 +1,15 @@
-import React, { useState, useContext } from "react";
-import "../../index.css";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { CartContext } from "../../store/CartContext";
+import React, { useState, useContext } from 'react';
+import '../../index.css';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { CartContext } from '../../store/CartContext';
 
 const RegisterElement = () => {
-  const [username, setUsername] = useState("");
-  const [surname, setSurname] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [surname, setSurname] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const { setToken } = useContext(CartContext);
   const handleSubmit = async (e) => {
@@ -17,8 +17,8 @@ const RegisterElement = () => {
 
     try {
       const res = await axios({
-        method: "POST",
-        url: "http://localhost:3000/api/v1/signup",
+        method: 'POST',
+        url: 'http://localhost:3000/api/v1/signup',
         data: {
           username,
           surname,
@@ -27,20 +27,19 @@ const RegisterElement = () => {
         },
       });
       setToken(res.data.token);
-      localStorage.setItem("token", res.data.token);
-      navigate("/", { replace: true });
+      localStorage.setItem('token', res.data.token);
+      navigate('/', { replace: true });
     } catch (error) {
       if (error.response) {
-        console.log("Pełna odpowiedź błędu:", error.response);
         const errorMessage =
           error.response.data.errors || error.response.data.message;
-        if (errorMessage.includes("Users validation failed")) {
-          alert("Hasło musi mieć co najmniej 8 znaków");
+        if (errorMessage.includes('Users validation failed')) {
+          alert('Hasło musi mieć co najmniej 8 znaków');
+        } else if (errorMessage) {
+          alert(errorMessage);
         }
       } else if (error.request) {
-        alert("Nie udało się nawiązać połączenia z serwerem.");
-      } else {
-        alert(`${error}`);
+        alert('Nie udało się nawiązać połączenia z serwerem.');
       }
     }
   };

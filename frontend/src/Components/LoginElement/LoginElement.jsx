@@ -1,13 +1,13 @@
-import React, { useContext, useState } from "react";
-import "../../index.css";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { CartContext } from "../../store/CartContext";
+import React, { useContext, useState } from 'react';
+import '../../index.css';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { CartContext } from '../../store/CartContext';
 
 const LoginElement = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const { setToken } = useContext(CartContext);
 
@@ -16,30 +16,26 @@ const LoginElement = () => {
 
     try {
       const res = await axios({
-        method: "POST",
-        url: "http://localhost:3000/api/v1/login",
+        method: 'POST',
+        url: 'http://localhost:3000/api/v1/login',
         data: {
           email,
           password,
         },
       });
       setToken(res.data.token);
-      console.log("Token received:", res.data.token);
-      localStorage.setItem("token", res.data.token);
-      navigate("/", { replace: true });
+      localStorage.setItem('token', res.data.token);
+      navigate('/', { replace: true });
     } catch (error) {
       if (error.response) {
-        console.log("Pełna odpowiedź błędu:", error.response);
         const errorMessage = error.response.data.message;
 
         alert(errorMessage);
       } else if (error.request) {
-        alert("Nie udało się nawiązać połączenia z serwerem.");
+        alert('Nie udało się nawiązać połączenia z serwerem.');
       } else {
         alert(error);
       }
-
-      console.log(error);
     }
   };
   return (
