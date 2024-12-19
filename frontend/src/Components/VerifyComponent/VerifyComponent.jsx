@@ -1,39 +1,36 @@
-import React, { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const VerifyComponent = () => {
   const [searchParams] = useSearchParams();
-  const success = searchParams.get('success');
-  const orderId = searchParams.get('orderId');
+  const success = searchParams.get("success");
+  const orderId = searchParams.get("orderId");
   const navigate = useNavigate();
-  const [info, setInfo] = useState('');
+  const [info, setInfo] = useState("");
 
   const verifyPayment = async () => {
     try {
-      const res = await axios.post(
-        'https://projekt-trener-personalny.onrender.com/api/v1/verify',
-        {
-          success,
-          orderId,
-        }
-      );
+      const res = await axios.post("http://localhost:3000/api/v1/verify", {
+        success,
+        orderId,
+      });
 
       if (res.data.success) {
         setInfo(
-          'Przetwarzanie zakończone pomyślnie, wysłano maila z produktami. Dziękujemy i zapraszamy ponownie :)'
+          "Przetwarzanie zakończone pomyślnie, wysłano maila z produktami. Dziękujemy i zapraszamy ponownie :)"
         );
       } else {
-        setInfo('Płatność nie została zrealizowana');
+        setInfo("Płatność nie została zrealizowana");
       }
 
       setTimeout(() => {
-        navigate('/');
+        navigate("/");
       }, 5000);
     } catch (error) {
-      console.error('Błąd przy weryfikacji płatności', error);
-      setInfo('Wystąpił błąd przy łączeniu się z serwerem');
+      console.error("Błąd przy weryfikacji płatności", error);
+      setInfo("Wystąpił błąd przy łączeniu się z serwerem");
     }
   };
 

@@ -1,5 +1,6 @@
 const Users = require('./../models/userModel');
 const jwt = require('jsonwebtoken');
+const validator = require('validator');
 
 const sign = (id) => {
   return jwt.sign({ id }, process.env.JWT_S, {
@@ -50,22 +51,35 @@ exports.loginUser = async (req, res, next) => {
 
     // Sprawdzenie, czy podano email i hasło
     if (!email || !password) {
-      throw new Error('Brak email bądź hasła');
+      return res.status(400).json({
+        status: 'fail',
+        message: 'Brak email bądź hasła',
+      });
+    }
+
+    if (!validator.isEmail(email)) {
+      return res.status(400).json({
+        status: 'fail',
+        message: 'Nieprawidłowy format adresu email',
+      });
     }
 
     // Znalezienie użytkownika i jawne dołączenie pola password
     const user = await Users.findOne({ email }).select('+password');
 
-    // Sprawdzenie, czy użytkownik istnieje i czy hasła się zgadzają
-    if (!user || !(await user.checkIsSame(password, user.password))) {
-      return res.status(401).json({
+    if (!user) {
+      return res.status(404).json({
         status: 'fail',
-        message: 'Nieprawidłowy email lub hasło',
+        message: 'Nie znaleziono użytkownika o podanym adresie email',
       });
     }
-
-    if (!user || !(await user.checkIsSame(password, user.password)))
-      throw new Error('Nieprawidłowy email lub hasło');
+    
+    if (!(await user.checkIsSame(password, user.password))) {
+      return res.status(401).json({
+        status: 'fail',
+        message: 'Nieprawidłowe hasło',
+      });
+    }
 
     // Wygenerowanie tokenu
     const token = sign(user._id);
