@@ -1,7 +1,8 @@
 ﻿# Projekt-Trener-Personalny
-https://trenerpersonalny.netlify.app
 
 ![Technologie](https://img.shields.io/badge/Technologie-React%20%7C%20Node.js%20%7C%20MongoDB-brightgreen)
+
+https://trenerpersonalny.netlify.app
 
 ## 🏋️‍♂️ Opis Projektu
 
